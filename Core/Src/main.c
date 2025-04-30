@@ -159,7 +159,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	char* msg = "Hello world!";
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -185,14 +185,14 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-  owc_transmit(msg, strlen(msg));
+  HAL_TIM_Base_Start(&htim3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	  process_optical_data();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -489,6 +489,9 @@ static void process_optical_data(){
 
 		uint8_t nextindex = (signalBuffer.tail + 1) % 64;
 
+		printf("Burst %d: %d \n",signalBuffer.tail, currentSignal.burstLen);
+		printf("Gap %d: %d \n",signalBuffer.tail, currentSignal.gapLen);
+
 		if(currentDataSide == LEFT){
 			currentByte = dataSymbol << 4;
 			currentDataSide = RIGHT;
@@ -543,7 +546,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
     if(triggerCount == 2){
 		rxSignal.burstLen = duration;
 	}
-	else{
+	else if(triggerCount > 2){
 		rxSignal.gapLen = duration;
 		send_to_queue(rxSignal);
 		triggerCount = 1;

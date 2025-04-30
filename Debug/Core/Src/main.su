@@ -1,5 +1,5 @@
 ../Drivers/CMSIS/Include/core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
-../Core/Src/main.c:158:5:main	16	static
+../Core/Src/main.c:158:5:main	8	static
 ../Core/Src/main.c:207:6:SystemClock_Config	88	static
 ../Core/Src/main.c:255:13:MX_TIM2_Init	64	static
 ../Core/Src/main.c:314:13:MX_TIM3_Init	32	static
@@ -8,9 +8,9 @@
 ../Core/Src/main.c:437:13:MX_GPIO_Init	48	static
 ../Core/Src/main.c:473:13:owc_transmit	16	static
 ../Core/Src/main.c:483:13:process_optical_data	16	static
-../Core/Src/main.c:510:15:map_symbol	40	static
-../Core/Src/main.c:528:13:send_to_queue	24	static
-../Core/Src/main.c:536:6:HAL_GPIO_EXTI_Callback	24	static
-../Core/Src/main.c:554:6:HAL_TIM_PeriodElapsedCallback	24	static
-../Core/Src/main.c:641:5:_write	32	static
-../Core/Src/main.c:658:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:513:15:map_symbol	40	static
+../Core/Src/main.c:531:13:send_to_queue	24	static
+../Core/Src/main.c:539:6:HAL_GPIO_EXTI_Callback	24	static
+../Core/Src/main.c:557:6:HAL_TIM_PeriodElapsedCallback	24	static
+../Core/Src/main.c:644:5:_write	32	static
+../Core/Src/main.c:661:6:Error_Handler	4	static,ignoring_inline_asm
